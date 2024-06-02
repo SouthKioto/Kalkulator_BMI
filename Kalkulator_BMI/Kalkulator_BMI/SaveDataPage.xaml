@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Kalkulator_BMI.SaveDataPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Twoje dane" FontSize="Large" HorizontalOptions="Center" />
+
+            <Button Text="Usuń" Clicked="DeleteData"/>
+            <ListView x:Name="bmidata_List">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding Id}" FontSize="Medium" TextColor="Black" />
+                                <Label Text="{Binding Result}" FontSize="Medium" TextColor="Black" />
+                                <Label Text="{Binding Message}" FontSize="Medium" TextColor="Black" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

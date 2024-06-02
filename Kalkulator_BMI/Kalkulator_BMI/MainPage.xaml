@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Kalkulator_BMI.MainPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Zapisane wyniki" Clicked="GoToSaveResultsPage"/>
+    </ContentPage.ToolbarItems>
+    
+    <StackLayout Margin="50">
+        <Label Text="Plec" FontSize="20" FontAttributes="Bold"/>
+        <Grid RadioButtonGroup.GroupName="gender">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Label Text="Meżczyzna"
+                   Grid.Column="0"
+                   Grid.Row="0"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   />
+            
+            <Label Text="Kobierta"
+                   Grid.Column="1"
+                   Grid.Row="0"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"/>
+
+            <RadioButton GroupName="gender"
+                         x:Name="radio_male"
+                         Grid.Column="0"
+                         Grid.Row="1"
+                         HorizontalOptions="Center"
+                         VerticalOptions="Center"/>
+            
+            <RadioButton GroupName="gender"
+                         x:Name="radio_female"
+                         Grid.Column="1"
+                         Grid.Row="1"
+                         HorizontalOptions="Center"
+                         VerticalOptions="Center"/>
+        </Grid>
+
+        <Label Text="Wysokosc" FontSize="25" FontAttributes="Bold"/>
+        <StackLayout Orientation="Horizontal">
+            <Entry x:Name="userHeight_Entry"
+                   Keyboard="Numeric"
+                   WidthRequest="200"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"/>
+            
+            <Label Text="cm" FontSize="20"
+                   HorizontalOptions="Start"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"/>
+        </StackLayout>
+
+        <Label Text="Waga" FontSize="25" FontAttributes="Bold"/>
+        <StackLayout Orientation="Horizontal">
+            <Entry x:Name="userWeidth_Entry"
+                   Keyboard="Numeric"
+                   WidthRequest="200"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"/>
+
+            <Label Text="kg" FontSize="20"
+                   HorizontalOptions="Start"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"/>
+        </StackLayout>
+
+        <Button Text="Oblicz" Clicked="CalculateBMI"/>
+
+        <Label x:Name="label_score"/>
+        <Label x:Name="label_results"/>
+
+        <Button x:Name="saveButton" Text="zapisz" IsEnabled="False" IsVisible="false" Clicked="SaveData"/>
+    </StackLayout>
+
+</ContentPage>
